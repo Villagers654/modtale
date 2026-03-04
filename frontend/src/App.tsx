@@ -10,6 +10,7 @@ import { Upload } from './react-pages/resources/Upload';
 import { CreatorProfile } from './react-pages/user/CreatorProfile.tsx';
 import { ModDetail } from './react-pages/resources/ModDetail';
 import { EditMod } from './react-pages/resources/EditMod';
+import { Gallery } from './react-pages/resources/Gallery';
 import { TermsOfService } from './react-pages/TermsOfService';
 import { PrivacyPolicy } from './react-pages/PrivacyPolicy';
 import { Dashboard } from './react-pages/user/Dashboard.tsx';
@@ -202,11 +203,14 @@ const AppContent: React.FC<{ initialClassification?: Classification }> = ({ init
 
                         <Route path="/mod/:id" element={<ModDetail onToggleFavorite={handleToggleFavorite} isLiked={(id) => user?.likedModIds?.includes(id) || false} currentUser={user} onRefresh={async () => {}} onDownload={handleDownload} downloadedSessionIds={downloadedSessionIds} />} />
                         <Route path="/mod/:id/edit" element={<EditMod currentUser={user} />} />
+                        <Route path="/mod/:id/gallery" element={<Gallery currentUser={user} />} />
 
                         <Route path="/modpack/:id" element={<ModDetail onToggleFavorite={handleToggleFavorite} isLiked={(id) => user?.likedModIds?.includes(id) || false} currentUser={user} onRefresh={async () => {}} onDownload={handleDownload} downloadedSessionIds={downloadedSessionIds} />} />
                         <Route path="/modpack/:id/edit" element={<EditMod currentUser={user} />} />
+                        <Route path="/modpack/:id/gallery" element={<Gallery currentUser={user} />} />
 
                         <Route path="/world/:id" element={<ModDetail onToggleFavorite={handleToggleFavorite} isLiked={(id) => user?.likedModIds?.includes(id) || false} currentUser={user} onRefresh={async () => {}} onDownload={handleDownload} downloadedSessionIds={downloadedSessionIds} />} />
+                        <Route path="/world/:id/gallery" element={<Gallery currentUser={user} />} />
 
                         <Route path="/creator/:username" element={
                             <CreatorProfile
